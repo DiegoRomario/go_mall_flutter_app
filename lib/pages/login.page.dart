@@ -39,28 +39,40 @@ class LoginPage extends StatelessWidget {
                         FlatButton(onPressed: () {}, child: Text("Sign-in"))
                       ],
                     ),
+                    SizedBox(
+                      height: 60,
+                    ),
                     TextFormField(
                       autofocus: true,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                          labelText: "E-mail",
-                          labelStyle: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16,
-                          )),
+                        labelText: "E-mail",
+                        labelStyle: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16,
+                        ),
+                      ),
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
                     ),
                     TextFormField(
                       autofocus: true,
                       keyboardType: TextInputType.text,
                       obscureText: true,
                       decoration: InputDecoration(
-                          labelText: "Password",
-                          labelStyle: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16,
-                          )),
+                        labelText: "Password",
+                        labelStyle: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16,
+                        ),
+                      ),
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(
+                      height: 100,
                     )
                   ],
                 ),
