@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_mall_flutter_app/pages/signup.page.dart';
+
+import 'home.page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -38,9 +41,15 @@ class LoginPage extends StatelessWidget {
                           ],
                         ),
                         FlatButton(
-                          onPressed: () {},
-                          child: Text("Sign-in"),
-                        )
+                            child: Text("Sign-up"),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SignupPage(),
+                                ),
+                              );
+                            })
                       ],
                     ),
                     SizedBox(
@@ -98,7 +107,14 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       child: FlatButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomePage(),
+                            ),
+                          );
+                        },
                         child: Text(
                           "Sign In",
                           style: TextStyle(
