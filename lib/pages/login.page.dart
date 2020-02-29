@@ -4,12 +4,13 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      color: Color(0xFFF5F5F5),
-      padding: EdgeInsets.only(top: 80, left: 20, right: 20, bottom: 40),
-      child: Column(
-        children: <Widget>[
-          Container(
+        body: SingleChildScrollView(
+      child: Container(
+        color: Color(0xFFF5F5F5),
+        padding: EdgeInsets.only(top: 80, left: 20, right: 20, bottom: 40),
+        child: Column(
+          children: <Widget>[
+            Container(
               height: 450,
               decoration: BoxDecoration(color: Colors.white, boxShadow: [
                 new BoxShadow(
@@ -20,8 +21,8 @@ class LoginPage extends StatelessWidget {
                 ),
               ]),
               child: Padding(
-                padding: EdgeInsets.all(15),
-                child: ListView(
+                padding: EdgeInsets.only(left: 15, right: 15, top: 60),
+                child: Column(
                   children: <Widget>[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,7 +37,10 @@ class LoginPage extends StatelessWidget {
                             Text("Sign-in to continue")
                           ],
                         ),
-                        FlatButton(onPressed: () {}, child: Text("Sign-in"))
+                        FlatButton(
+                          onPressed: () {},
+                          child: Text("Sign-in"),
+                        )
                       ],
                     ),
                     SizedBox(
@@ -57,6 +61,9 @@ class LoginPage extends StatelessWidget {
                         fontSize: 20,
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     TextFormField(
                       autofocus: true,
                       keyboardType: TextInputType.text,
@@ -71,13 +78,110 @@ class LoginPage extends StatelessWidget {
                       ),
                       style: TextStyle(fontSize: 20),
                     ),
+                    Container(
+                      alignment: Alignment.centerRight,
+                      height: 40,
+                      child: FlatButton(
+                        onPressed: () {},
+                        child: Text("Forgot your password?"),
+                      ),
+                    ),
                     SizedBox(
-                      height: 100,
-                    )
+                      height: 10,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(5),
+                        ),
+                      ),
+                      child: FlatButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Sign In",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-              ))
-        ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 15, bottom: 15),
+              child: Text(
+                "- OR -",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 60,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 2.0,
+                  color: Theme.of(context).primaryColor,
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5),
+                ),
+              ),
+              child: FlatButton(
+                onPressed: () {},
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      height: 24,
+                      width: 100,
+                      child: Image.asset(
+                        "assets/facebook.png",
+                      ),
+                    ),
+                    Text("Sign In with faceboook")
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: double.infinity,
+              height: 60,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 2.0,
+                  color: Theme.of(context).primaryColor,
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5),
+                ),
+              ),
+              child: FlatButton(
+                onPressed: () {},
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      height: 24,
+                      width: 100,
+                      child: Image.asset(
+                        "assets/google.png",
+                      ),
+                    ),
+                    Text("Sign In with Google")
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     ));
   }
