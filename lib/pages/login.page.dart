@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_mall_flutter_app/pages/signup.page.dart';
 
+import 'cart.page.dart';
 import 'home.page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -107,16 +108,9 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       child: FlatButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomePage(),
-                            ),
-                          );
-                        },
+                        onPressed: () {},
                         child: Text(
-                          "Sign In",
+                          "Sign Ina",
                           style: TextStyle(
                             color: Colors.white,
                           ),
