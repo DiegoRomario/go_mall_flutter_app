@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_mall_flutter_app/themes/dark-yellow.theme.dart';
+import 'package:go_mall_flutter_app/themes/dark.theme.dart';
+import 'package:go_mall_flutter_app/themes/light.theme.dart';
 import 'pages/tabs.page.dart';
 
 void main() => runApp(MyApp());
@@ -10,9 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: darkYellowTheme(),
       home: DefaultTabController(length: 3, child: TabsPage()),
     );
   }

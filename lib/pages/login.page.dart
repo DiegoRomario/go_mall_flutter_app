@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:go_mall_flutter_app/pages/signup.page.dart';
 
-import 'cart.page.dart';
-import 'home.page.dart';
-
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
       child: Container(
-        color: Color(0xFFF5F5F5),
         padding: EdgeInsets.only(top: 80, left: 20, right: 20, bottom: 40),
         child: Column(
           children: <Widget>[
             Container(
               height: 450,
-              decoration: BoxDecoration(color: Colors.white, boxShadow: [
-                new BoxShadow(
-                  color: Colors.black12,
-                  offset: new Offset(1, 2.0),
-                  blurRadius: 5,
-                  spreadRadius: 1,
-                ),
-              ]),
+              decoration: BoxDecoration(
+                  color: Theme.of(context).accentColor,
+                  boxShadow: [
+                    new BoxShadow(
+                      color: Colors.black12,
+                      offset: new Offset(1, 2.0),
+                      blurRadius: 5,
+                      spreadRadius: 1,
+                    ),
+                  ]),
               child: Padding(
                 padding: EdgeInsets.only(left: 15, right: 15, top: 60),
                 child: Column(
@@ -35,14 +33,21 @@ class LoginPage extends StatelessWidget {
                           children: <Widget>[
                             Text(
                               "Welcome",
-                              style: TextStyle(
-                                  fontSize: 30, fontWeight: FontWeight.w500),
+                              style: Theme.of(context).textTheme.display2,
                             ),
-                            Text("Sign-in to continue")
+                            Text(
+                              "Sign-in to continue",
+                              style: Theme.of(context).textTheme.subhead,
+                            )
                           ],
                         ),
                         FlatButton(
-                            child: Text("Sign-up"),
+                            child: Text(
+                              "Sign-up",
+                              style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                            ),
                             onPressed: () {
                               Navigator.push(
                                 context,
@@ -69,6 +74,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       style: TextStyle(
                         fontSize: 20,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                     SizedBox(
@@ -86,14 +92,22 @@ class LoginPage extends StatelessWidget {
                           fontSize: 16,
                         ),
                       ),
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                     Container(
                       alignment: Alignment.centerRight,
                       height: 40,
                       child: FlatButton(
                         onPressed: () {},
-                        child: Text("Forgot your password?"),
+                        child: Text(
+                          "Forgot your password?",
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -110,7 +124,7 @@ class LoginPage extends StatelessWidget {
                       child: FlatButton(
                         onPressed: () {},
                         child: Text(
-                          "Sign Ina",
+                          "Sign In",
                           style: TextStyle(
                             color: Colors.white,
                           ),
