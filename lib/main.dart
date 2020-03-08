@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: darkYellowTheme(),
+      theme: lightTheme(),
       home: DefaultTabController(length: 3, child: TabsPage()),
     );
   }

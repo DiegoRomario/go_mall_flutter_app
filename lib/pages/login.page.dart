@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_mall_flutter_app/pages/signup.page.dart';
 
 class LoginPage extends StatelessWidget {
+  final _formKey = GlobalKey<FormState>();
+  String _email;
+  String _password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +15,7 @@ class LoginPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Container(
-              height: 450,
+              height: 480,
               decoration: BoxDecoration(
                   color: Theme.of(context).accentColor,
                   boxShadow: [
@@ -24,114 +28,144 @@ class LoginPage extends StatelessWidget {
                   ]),
               child: Padding(
                 padding: EdgeInsets.only(left: 15, right: 15, top: 60),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Column(
-                          children: <Widget>[
-                            Text(
-                              "Welcome",
-                              style: Theme.of(context).textTheme.display2,
-                            ),
-                            Text(
-                              "Sign-in to continue",
-                              style: Theme.of(context).textTheme.subhead,
-                            )
-                          ],
-                        ),
-                        FlatButton(
-                            child: Text(
-                              "Sign-up",
-                              style: TextStyle(
-                                color: Theme.of(context).primaryColor,
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Column(
+                            children: <Widget>[
+                              Text(
+                                "Welcome",
+                                style: Theme.of(context).textTheme.display2,
                               ),
+                              Text(
+                                "Sign-in to continue",
+                                style: Theme.of(context).textTheme.subhead,
+                              )
+                            ],
+                          ),
+                          FlatButton(
+                              child: Text(
+                                "Sign-up",
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => SignupPage(),
+                                  ),
+                                );
+                              })
+                        ],
+                      ),
+                      SizedBox(
+                        height: 60,
+                      ),
+                      TextFormField(
+                        autofocus: true,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          labelText: "E-mail",
+                          labelStyle: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                          ),
+                        ),
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Invalid E-mail!';
+                          } else {
+                            return null;
+                          }
+                        },
+                        onSaved: (input) => _email = input,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      TextFormField(
+                        autofocus: true,
+                        keyboardType: TextInputType.text,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          labelText: "Password",
+                          labelStyle: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                          ),
+                        ),
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Invalid Password!';
+                          } else {
+                            return null;
+                          }
+                        },
+                        onSaved: (input) => _password = input,
+                      ),
+                      Container(
+                        alignment: Alignment.centerRight,
+                        height: 40,
+                        child: FlatButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Forgot your password?",
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
                             ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SignupPage(),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(5),
+                          ),
+                        ),
+                        child: FlatButton(
+                          onPressed: () {
+                            if (_formKey.currentState.validate()) {
+                              _formKey.currentState.save();
+                              print(_email);
+                              print(_password);
+                              Scaffold.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text("Welcome, $_email"),
                                 ),
                               );
-                            })
-                      ],
-                    ),
-                    SizedBox(
-                      height: 60,
-                    ),
-                    TextFormField(
-                      autofocus: true,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        labelText: "E-mail",
-                        labelStyle: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                        ),
-                      ),
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    TextFormField(
-                      autofocus: true,
-                      keyboardType: TextInputType.text,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: "Password",
-                        labelStyle: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                        ),
-                      ),
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ),
-                    Container(
-                      alignment: Alignment.centerRight,
-                      height: 40,
-                      child: FlatButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Forgot your password?",
-                          style: TextStyle(
-                            color: Theme.of(context).primaryColor,
+                            }
+                          },
+                          child: Text(
+                            "Sign In",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(5),
-                        ),
-                      ),
-                      child: FlatButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Sign In",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
